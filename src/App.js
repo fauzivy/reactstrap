@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { Container, Row, Col } from "reactstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import Header from "./components/Header.js";
+import SideCard from "./components/Sidecard.js";
+import Post from "./components/Post.js";
+
+const App = () => (
+  <>
+    <Header />
+
+    <main className="my-5 py-5">
+      <Container className="px-0">
+        <Row
+          noGutters
+          className="pt-2 pt-md-5 w-100 px-4 px-xl-0 position-relative"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+          <Col
+            xs={{ order: 2 }}
+            md={{ size: 4, order: 1 }}
+            tag="aside"
+            className="pb-5 mb-5 pb-md-0 mb-md-0 mx-auto mx-md-0"
+          >
+            <SideCard />
+          </Col>
+
+          <Col
+            xs={{ order: 2 }}
+            md={{ size: 7, offset: 1 }}
+            tag="aside"
+            className="py-5 mb-5 py-md-0 mb-md-0"
+          >
+            <Post />
+          </Col>
+        </Row>
+      </Container>
+    </main>
+  </>
+);
 
 export default App;
